@@ -31,11 +31,11 @@ Para criar a imagem da API, ainda dentro do diretório raíz, execute o seguinte
 
     docker build -t comexport-docker-build .
 
-Confira se foi corretamente criado, utilizando o comando para lista as imagens:
+Confira se foi corretamente criado, utilizando o comando para listar as imagens:
 
     docker images
 
-Como exemplo, para duas subir instâncias da API, utilize o seguinte comando duas vezes, alterando apenas a porta que será exposta:
+Como exemplo, para subir duas instâncias da API, utilize o seguinte comando duas vezes, alterando apenas a porta que será exposta:
 
     docker run -p 9000:8080 comexport-docker-build
     docker run -p 9001:8080 comexport-docker-build
