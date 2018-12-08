@@ -2,7 +2,7 @@
 API para teste prático.
 
 ## 1. Pré-requesitos
-* [Java8+](https://www.java.com/download/)
+* [Java 8](https://www.java.com/download/)
 * [Spring Tool Suite](https://spring.io/tools)
 * [Docker](https://www.docker.com/)
 * [Git](https://git-scm.com/downloads)
