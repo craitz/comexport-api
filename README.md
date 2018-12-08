@@ -1,5 +1,5 @@
 # COMEXPORT-API
-API para teste prático
+API para teste prático.
 
 ## 1. Pré-requesitos
 * [Java8+](https://www.java.com/download/)
