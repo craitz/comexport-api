@@ -16,7 +16,7 @@ Importe o projeto no **STS** ou **Eclipse**. No menu principal, vá em **Run -> 
 
 ![comexport-api build](https://github.com/craitz/comexport-api/blob/master/comexport-build.png)
 
-O arquivo **comexport-0.0.1-SNAPSHOT.jar** vai ser gerado no diretório **/target**.
+O arquivo **comexport-0.0.1-SNAPSHOT.jar** vai ser gerado no diretório **./target**.
 
 ## 4. Criando e subindo os containers no Docker
 No diretório raíz do projeto crie um arquivo chamado **Dockerfile**, com a seguinte configuração:
