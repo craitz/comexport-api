@@ -62,4 +62,16 @@ public class ResourceExceptionHandler {
 				
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
 	}
+	
+	@ExceptionHandler(NumberFormatException.class)
+	public ResponseEntity<ErrorDetails> handleNumberFormatException(NumberFormatException ex, HttpServletRequest request) {	
+		ErrorDetails error = new ErrorDetails();
+		error.setStatus(400L);
+		error.setTitle("Bad Request");
+		error.setMessage("Parâmetro com formato inválido");
+		error.setCause(ex.getMessage());
+		error.setTimestamp(System.currentTimeMillis());
+				
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+	}	
 }
