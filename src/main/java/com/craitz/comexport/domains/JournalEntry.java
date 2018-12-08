@@ -1,16 +1,18 @@
 package com.craitz.comexport.domains;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class JournalEntry {
 	
 	@Id
@@ -18,14 +20,18 @@ public class JournalEntry {
 	@JsonInclude(Include.NON_NULL)
 	private Long id;
 
+	@NotNull(message = "O parâmetro journalAccount é origatório")
 	@JsonInclude(Include.NON_NULL)
 	private Long journalAccount;
 
+	@NotNull(message = "O parâmetro date é origatório")
 	@JsonInclude(Include.NON_NULL)
-	private Date date;
+	@JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = "yyyyMMdd", locale = "pt_BR")
+	private Long date;
 
+	@NotNull(message = "O parâmetro value é origatório")
 	@JsonInclude(Include.NON_NULL)
-	private double value;
+	private Double value;
 	
 	@Override
 	public int hashCode() {
@@ -48,7 +54,7 @@ public class JournalEntry {
 			return false;
 		return true;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -65,19 +71,19 @@ public class JournalEntry {
 		this.journalAccount = journalAccount;
 	}
 	
-	public Date getDate() {
+	public Long getDate() {
 		return date;
 	}
 	
-	public void setDate(Date date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
-	
-	public double getValue() {
+		
+	public Double getValue() {
 		return value;
 	}
 	
-	public void setValue(double value) {
+	public void setValue(Double value) {
 		this.value = value;
 	}
 }

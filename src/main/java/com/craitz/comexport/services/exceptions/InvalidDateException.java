@@ -1,9 +1,9 @@
 package com.craitz.comexport.services.exceptions;
 
-public class JournalEntryNotFoundException extends RuntimeException {
+public class InvalidDateException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
-	public JournalEntryNotFoundException() {
+	public InvalidDateException() {
 		super();
 	}
 }

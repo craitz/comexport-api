@@ -1,11 +1,17 @@
 package com.craitz.comexport.domains;
 
-public class ErrorDetails {
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+//objeto de retorno para os erros
+public class ErrorDetails {
 	private String title;
 	private Long status;
 	private Long timestamp;
 	private String message;
+	
+	@JsonInclude(Include.NON_NULL)
+	private String cause;	
 	
 	public String getTitle() {
 		return title;
@@ -39,5 +45,11 @@ public class ErrorDetails {
 		this.message = message;
 	}
 
+	public String getCause() {
+		return cause;
+	}
 	
+	public void setCause(String cause) {
+		this.cause = cause;
+	}	
 }
