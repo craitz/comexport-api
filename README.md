@@ -41,7 +41,7 @@ Como exemplo, para subir duas instâncias da API, utilize o seguinte comando dua
     docker run -p 9001:8080 comexport-docker-build
 
 ## 5. Navegação
-Com as instâncias rodando, podemos acessá-las sutilizando as respectivas urls base:
+Com as instâncias rodando, podemos acessar a API utilizando as respectivas urls base:
 
     http://localhost:9000/
     http://localhost:9001/
