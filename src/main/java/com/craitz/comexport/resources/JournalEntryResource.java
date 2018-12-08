@@ -1,9 +1,8 @@
 package com.craitz.comexport.resources;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,28 +11,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.craitz.comexport.domains.JournalEntry;
-import com.craitz.comexport.repositories.JournalEntryRepository;
+import com.craitz.comexport.domains.ResourceCreated;
+import com.craitz.comexport.services.JournalEntryService;
 
 @RestController
-@RequestMapping("/journal-entries")
+@RequestMapping("/lancamentos-contabeis")
 public class JournalEntryResource {
 	
 	@Autowired
-	private JournalEntryRepository journalEntryRepository;
+	private JournalEntryService journalEntryService;
 
-	@GetMapping()
-	public List<JournalEntry> getAllEntries() {
-		return journalEntryRepository.findAll();
+	@GetMapping
+	public ResponseEntity<?> getAllJournalEntries() {
+		return ResponseEntity.ok(journalEntryService.getAllJournalEntries());			
 	}
 	
-	@PostMapping()
-	public void insertEntry(@RequestBody JournalEntry journalEntry) {
-		journalEntryRepository.save(journalEntry);
+//	@GetMapping
+//	public void getJournalEntries(@RequestParam("conta-contabil") String journalAcccount ) ) {
+//		if (journalAcccount != null && !journalAcccount.isEmpty()) {
+//			journalEntryRepository.
+//		}
+//	}
+
+	@PostMapping
+	public ResponseEntity<?> insertEntry(@RequestBody JournalEntry journalEntry) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ResourceCreated(journalEntryService.insertEntry(journalEntry)));			
 	}
 	
-	@GetMapping(value = "/{id}")
-	public JournalEntry findEntry(@PathVariable("id") Long id) {
-		JournalEntry entry = journalEntryRepository.findById(id).get();
+	@GetMapping("/{id}")
+	public ResponseEntity<?> findEntry(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(journalEntryService.findEntry(id));
 	}
+	
 }
 	
