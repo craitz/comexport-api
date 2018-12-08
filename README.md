@@ -11,10 +11,15 @@ API para teste prático
     git clone https://github.com/craitz/comexport-api.git (HTTPS)
     git clone git@github.com:craitz/comexport-api.git (SSH)
 
-## 3. Execução
+## 3. Build (utilizando STS ou Eclipse)
+No menu principal, vá em **Run -> Run Configurations**. Escolha o diretório base como sendo o diretório raíz do seu projeto e definal _**clean package**_ em **Goals**.
+
+![comexport-api build](https://github.com/craitz/comexport-api/blob/master/comexport-build.png)
+
+## 4. Execução
     cd ./comexport-api
     npm install
     ng serve --open
 
-## 4. Navegação
+## 5. Navegação
     http://localhost:4200/
