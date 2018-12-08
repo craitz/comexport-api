@@ -11,6 +11,7 @@ API para teste prático
     git clone git@github.com:craitz/comexport-api.git (SSH)
 
 ## 3. Execução
+    cd ./comexport-api
     npm install
     ng serve --open
 
