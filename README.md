@@ -18,7 +18,7 @@ Importe o projeto no **STS** ou **Eclipse**. No menu principal, vá em **Run -> 
 
 O arquivo **comexport-0.0.1-SNAPSHOT.jar** vai ser gerado no diretório **./target**.
 
-## 4. Criando e subindo os containers no Docker
+## 4. Criando e subindo as instâncias no Docker
 No diretório raíz do projeto crie um arquivo chamado **Dockerfile**, com a seguinte configuração:
 
     FROM openjdk:8-jdk-alpine
