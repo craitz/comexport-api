@@ -12,7 +12,7 @@ API para teste prático.
     git clone git@github.com:craitz/comexport-api.git (SSH)
 
 ## 3. Build
-Importe o projeto no **STS** ou **Eclipse**. No menu principal, vá em **Run -> Run Configurations**. Escolha o diretório base como sendo o diretório raíz do seu projeto e defina _**clean package**_ em **Goals**.
+Importe o projeto no **STS** ou **Eclipse**. Em seguida, no menu principal, vá em **Run -> Run Configurations**. Escolha o diretório base como sendo o diretório raíz do seu projeto e defina _**clean package**_ em **Goals**.
 
 ![comexport-api build](https://github.com/craitz/comexport-api/blob/master/comexport-build.png)
 
