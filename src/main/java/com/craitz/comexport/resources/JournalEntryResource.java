@@ -35,7 +35,7 @@ public class JournalEntryResource {
 		CompletableFuture<List<JournalEntry>> future = null;
 		
 		if (journalAccount != null && !journalAccount.toString().isEmpty()) {
-			// chama a camada de serviço
+			// chama a camada de serviço buscando por conta contábil
 			future = journalEntryService.findEntryByJournalAccount(journalAccount);
 
 			// retorna os lançamentos contábeis para o cliente filtrados pela conta contábil
@@ -73,7 +73,7 @@ public class JournalEntryResource {
 		CompletableFuture<Stats> future = null;
 		
 		if (journalAccount != null && !journalAccount.toString().isEmpty()) {
-			// chama a camada de serviço
+			// chama a camada de serviço buscando por conta contábil
 			future = journalEntryService.getStats(journalAccount);
 		} else {
 			// chama a camada de serviço

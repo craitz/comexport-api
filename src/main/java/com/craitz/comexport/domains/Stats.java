@@ -5,30 +5,33 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 public class Stats {
+	// variáveis usadas na formatação de valores Double
 	private DecimalFormat decimalFormat;
-	DecimalFormatSymbols symbols;
-	private Double soma;
+	private DecimalFormatSymbols symbols;
+	
+	// demais variáveis de classe
+	private Double sum;
 	private Double min;
 	private Double max;
-	private Double media;
-	private Long quantidade;
+	private Double average;
+	private Long quantity;
 	
 	public Stats() {
-		soma = 0D;
-		min = 0D;
-		max = 0D;
-		media = 0D;
-		quantidade = 0L;
 		symbols = new DecimalFormatSymbols(Locale.US);
 		decimalFormat = new DecimalFormat(".##", symbols);
+		sum = 0D;
+		min = 0D;
+		max = 0D;
+		average = 0D;
+		quantity = 0L;
 	}
 	
-	public Double getSoma() {
-		return Double.valueOf(decimalFormat.format(soma));
+	public Double getSum() {
+		return Double.valueOf(decimalFormat.format(sum));
 	}
 	
-	public void setSoma(Double soma) {
-		this.soma = soma;
+	public void setSum(Double sum) {
+		this.sum = sum;
 	}
 	
 	public Double getMin() {
@@ -47,19 +50,19 @@ public class Stats {
 		this.max = max;
 	}
 	
-	public Double getMedia() {
-		return Double.valueOf(decimalFormat.format(media));
+	public Double getAverage() {
+		return Double.valueOf(decimalFormat.format(average));
 	}
 	
-	public void setMedia(Double media) {
-		this.media = media;
+	public void setAverage(Double average) {
+		this.average = average;
 	}
 	
-	public Long getQuantidade() {
-		return quantidade;
+	public Long getQuantity() {
+		return quantity;
 	}
 	
-	public void setQuantidade(Long quantidade) {
-		this.quantidade = quantidade;
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
 	}
 }

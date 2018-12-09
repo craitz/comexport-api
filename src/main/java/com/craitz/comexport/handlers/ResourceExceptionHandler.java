@@ -20,7 +20,7 @@ public class ResourceExceptionHandler {
 	public ResponseEntity<ErrorDetails> handleJournalEntryNotFoundException(JournalEntryNotFoundException ex, HttpServletRequest request) {	
 		ErrorDetails error = new ErrorDetails();
 		error.setStatus(404L);
-		error.setTitle("Object not found");
+		error.setTitle("Not Found");
 		error.setMessage("The journal entry could not be found in the database");
 		error.setTimestamp(System.currentTimeMillis());
 				

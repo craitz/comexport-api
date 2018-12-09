@@ -20,9 +20,6 @@ import com.craitz.comexport.repositories.JournalEntryRepository;
 public class JournalEntryService {
 	@Autowired
 	private JournalEntryRepository journalEntryRepository;
-	
-//	@Autowired
-//	private GregorianDateMatcherService matcherService;
 		
 	@Async
 	public CompletableFuture<List<JournalEntry>> getAllJournalEntries(){
@@ -90,11 +87,11 @@ public class JournalEntryService {
 		stats.setMax(entries.get(0).getValue());
 		
 	    // quantidde
-		stats.setQuantidade(Long.valueOf(entries.size()));
+		stats.setQuantity(Long.valueOf(entries.size()));
 
 		for (JournalEntry entry : entries) {
 			// soma
-			stats.setSoma(stats.getSoma() + entry.getValue());
+			stats.setSum(stats.getSum() + entry.getValue());
 			
 			// min
 			if (entry.getValue() < stats.getMin()) {
@@ -108,7 +105,7 @@ public class JournalEntryService {
 		}
 		
 		// media
-		stats.setMedia(stats.getSoma()/entries.size());
+		stats.setAverage(stats.getSum()/entries.size());
 				
 		return stats;
 	}
