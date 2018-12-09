@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JournalEntry {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonInclude(Include.NON_NULL)

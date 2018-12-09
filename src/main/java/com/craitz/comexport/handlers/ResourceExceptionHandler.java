@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.craitz.comexport.domains.ErrorDetails;
-import com.craitz.comexport.services.exceptions.InvalidDateException;
-import com.craitz.comexport.services.exceptions.JournalEntryNotFoundException;
+import com.craitz.comexport.exceptions.InvalidDateException;
+import com.craitz.comexport.exceptions.JournalEntryNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {

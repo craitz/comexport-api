@@ -1,4 +1,4 @@
-package com.craitz.comexport.services.exceptions;
+package com.craitz.comexport.exceptions;
 
 public class InvalidDateException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

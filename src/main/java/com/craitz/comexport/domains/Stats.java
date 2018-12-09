@@ -1,6 +1,12 @@
 package com.craitz.comexport.domains;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 public class Stats {
+	private DecimalFormat decimalFormat;
+	DecimalFormatSymbols symbols;
 	private Double soma;
 	private Double min;
 	private Double max;
@@ -13,10 +19,12 @@ public class Stats {
 		max = 0D;
 		media = 0D;
 		quantidade = 0L;
+		symbols = new DecimalFormatSymbols(Locale.US);
+		decimalFormat = new DecimalFormat(".##", symbols);
 	}
 	
 	public Double getSoma() {
-		return soma;
+		return Double.valueOf(decimalFormat.format(soma));
 	}
 	
 	public void setSoma(Double soma) {
@@ -24,7 +32,7 @@ public class Stats {
 	}
 	
 	public Double getMin() {
-		return min;
+		return Double.valueOf(decimalFormat.format(min));
 	}
 	
 	public void setMin(Double min) {
@@ -32,7 +40,7 @@ public class Stats {
 	}
 	
 	public Double getMax() {
-		return max;
+		return Double.valueOf(decimalFormat.format(max));
 	}
 	
 	public void setMax(Double max) {
@@ -40,7 +48,7 @@ public class Stats {
 	}
 	
 	public Double getMedia() {
-		return media;
+		return Double.valueOf(decimalFormat.format(media));
 	}
 	
 	public void setMedia(Double media) {
