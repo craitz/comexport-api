@@ -32,6 +32,18 @@ public class JournalEntry {
 	@JsonInclude(Include.NON_NULL)
 	private Double value;
 	
+	public JournalEntry() {
+		super();
+	}
+	
+	public JournalEntry(Long id, Long journalAccount, Long date, Double value) {
+		super();
+		this.id = id;
+		this.journalAccount = journalAccount;
+		this.date = date;
+		this.value = value;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
