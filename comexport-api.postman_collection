@@ -1,0 +1,152 @@
+{
+	"variables": [],
+	"info": {
+		"name": "COMEXPORT",
+		"_postman_id": "af884d74-fbcb-9169-5d8d-164ca35746a3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllJournalEntries",
+			"request": {
+				"url": "http://localhost:8080/lancamentos-contabeis",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "getAllJournalEntriesByJournalAccount",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/lancamentos-contabeis?contaContabil=222",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos-contabeis"
+					],
+					"query": [
+						{
+							"key": "contaContabil",
+							"value": "222",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SaveJournalEntry",
+			"request": {
+				"url": "http://localhost:8080/lancamentos-contabeis",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"journalAccount\": 222,\n    \"date\": 21011022,\n    \"value\": 123.44\n}"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "findJournalEntry",
+			"request": {
+				"url": "http://localhost:8080/lancamentos-contabeis/11",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetStats",
+			"request": {
+				"url": "http://localhost:8080/lancamentos-contabeis/_stats",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"journalAccount\": 2565,\n    \"date\": 20180228,\n    \"value\": 234456.67\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetStatsByJournalAccount",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/lancamentos-contabeis/_stats?contaContabil=2221",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lancamentos-contabeis",
+						"_stats"
+					],
+					"query": [
+						{
+							"key": "contaContabil",
+							"value": "2221",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"journalAccount\": 2565,\n    \"date\": 20180228,\n    \"value\": 234456.67\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
