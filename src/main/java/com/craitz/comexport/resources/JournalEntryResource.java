@@ -3,10 +3,12 @@ package com.craitz.comexport.resources;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,19 +36,19 @@ public class JournalEntryResource {
 		
 		CompletableFuture<List<JournalEntry>> future = null;
 		
+		// implementação de uma cache simples (20 segundos) para este endpoint
+		CacheControl cacheControl = CacheControl.maxAge(20, TimeUnit.SECONDS);
+
 		if (journalAccount != null && !journalAccount.toString().isEmpty()) {
 			// chama a camada de serviço buscando por conta contábil
 			future = journalEntryService.findEntryByJournalAccount(journalAccount);
-
-			// retorna os lançamentos contábeis para o cliente filtrados pela conta contábil
-			return ResponseEntity.ok(future.get());
 		} else {
 			// chama a camada de serviço
 			future = journalEntryService.getAllJournalEntries();
 		}
 
 		// retorna os lançamentos contábeis para o cliente
-		return ResponseEntity.ok(future.get());
+		return ResponseEntity.status(HttpStatus.OK).cacheControl(cacheControl).body(future.get());	
 	}
 
 	@PostMapping
