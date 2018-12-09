@@ -50,6 +50,6 @@ Com as instâncias rodando, podemos acessar a API utilizando as respectivas urls
     http://localhost:9000/
     http://localhost:9001/
 
-## 6. Documentação
+## 6. Links
 * [Postman collection](https://github.com/craitz/comexport-api/blob/master/comexport-api.postman_collection)
-* [API docs](https://documenter.getpostman.com/view/811431/RzfiGoHt)
+* [Postman docs](https://documenter.getpostman.com/view/811431/RzfiGoHt)
