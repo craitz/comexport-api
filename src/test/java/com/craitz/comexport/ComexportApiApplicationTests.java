@@ -1,6 +1,7 @@
 package com.craitz.comexport;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
@@ -56,7 +57,12 @@ public class ComexportApiApplicationTests {
 		
 		CompletableFuture<List<JournalEntry>> result = journalEntryServiceMock.getAllJournalEntries();
 		List<JournalEntry> resultEntryList = result.get();
+		
+		// positivo
 		assertEquals(5, resultEntryList.size());
+		
+		// negativo
+		assertFalse(resultEntryList.size() != 5);
 	}
 	
 	@Test
@@ -69,8 +75,13 @@ public class ComexportApiApplicationTests {
 		
 		CompletableFuture<List<JournalEntry>> result = journalEntryServiceMock.findEntryByJournalAccount(211L);
 		List<JournalEntry> resultEntryList = result.get();
+
+		// positivo
 		assertEquals(3, resultEntryList.size());
-	}
+
+		// negativo
+		assertFalse(resultEntryList.size() != 3);
+}
 
 	@Test
 	public void testFindJournalEntryById() throws InterruptedException, ExecutionException {
@@ -80,10 +91,18 @@ public class ComexportApiApplicationTests {
 		
 		CompletableFuture<JournalEntry> result = journalEntryServiceMock.findEntry(1L);
 		JournalEntry resultEntry = result.get();
+
+		// positivo
 		assertEquals(Long.valueOf(1), resultEntry.getId());
 		assertEquals(Long.valueOf(211), resultEntry.getJournalAccount());
 		assertEquals(Long.valueOf(21011022), resultEntry.getDate());
 		assertEquals(Double.valueOf(123.44), resultEntry.getValue());
+		
+		// negativo
+		assertFalse(resultEntry.getId() != 1L);
+		assertFalse(resultEntry.getJournalAccount() != 211L);
+		assertFalse(resultEntry.getDate() != 21011022L);
+		assertFalse(resultEntry.getValue() != 123.44);
 	}	
 	
 	@Test
@@ -93,8 +112,13 @@ public class ComexportApiApplicationTests {
 		
 		CompletableFuture<Long> result = journalEntryServiceMock.insertEntry(entry);
 		Long resultId = result.get();
+		
+		// positivo
 		assertEquals(Long.valueOf(1), resultId);
-	}
+
+		// negativo
+		assertFalse(resultId != 1L);
+}
 	
 	@Test
 	public void testGetStats() throws InterruptedException, ExecutionException {
@@ -105,11 +129,20 @@ public class ComexportApiApplicationTests {
 		
 		CompletableFuture<Stats> result = journalEntryServiceMock.getStats(null);
 		Stats resultStats = result.get();
+		
+		// positivo
 		assertEquals(Double.valueOf(14.0), resultStats.getSum());
 		assertEquals(Double.valueOf(6.0), resultStats.getMin());
 		assertEquals(Double.valueOf(8.0), resultStats.getMax());
 		assertEquals(Double.valueOf(7.0), resultStats.getAverage());
 		assertEquals(Long.valueOf(2), resultStats.getQuantity());
+		
+		//negativo
+		assertFalse(resultStats.getSum() != 14.0);
+		assertFalse(resultStats.getMin() != 6.0);
+		assertFalse(resultStats.getMax() != 8.0);
+		assertFalse(resultStats.getAverage() != 7.0);
+		assertFalse(resultStats.getQuantity() != 2);
 	}
 	
 	@Test
@@ -121,11 +154,20 @@ public class ComexportApiApplicationTests {
 		
 		CompletableFuture<Stats> result = journalEntryServiceMock.getStats(211L);
 		Stats resultStats = result.get();
+		
+		// positivo
 		assertEquals(Double.valueOf(14.0), resultStats.getSum());
 		assertEquals(Double.valueOf(6.0), resultStats.getMin());
 		assertEquals(Double.valueOf(8.0), resultStats.getMax());
 		assertEquals(Double.valueOf(7.0), resultStats.getAverage());
 		assertEquals(Long.valueOf(2), resultStats.getQuantity());
-	}
+
+		//negativo
+		assertFalse(resultStats.getSum() != 14.0);
+		assertFalse(resultStats.getMin() != 6.0);
+		assertFalse(resultStats.getMax() != 8.0);
+		assertFalse(resultStats.getAverage() != 7.0);
+		assertFalse(resultStats.getQuantity() != 2);
+}
 	
 }
