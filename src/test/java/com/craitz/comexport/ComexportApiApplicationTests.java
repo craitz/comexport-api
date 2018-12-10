@@ -81,7 +81,7 @@ public class ComexportApiApplicationTests {
 
 		// negativo
 		assertFalse(resultEntryList.size() != 3);
-}
+	}
 
 	@Test
 	public void testFindJournalEntryById() throws InterruptedException, ExecutionException {
@@ -118,7 +118,7 @@ public class ComexportApiApplicationTests {
 
 		// negativo
 		assertFalse(resultId != 1L);
-}
+	}
 	
 	@Test
 	public void testGetStats() throws InterruptedException, ExecutionException {
@@ -168,6 +168,5 @@ public class ComexportApiApplicationTests {
 		assertFalse(resultStats.getMax() != 8.0);
 		assertFalse(resultStats.getAverage() != 7.0);
 		assertFalse(resultStats.getQuantity() != 2);
-}
-	
+	}
 }
